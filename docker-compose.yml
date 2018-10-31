@@ -1,0 +1,27 @@
+version: '3'
+services:
+
+  db:
+    image: mysql:5.7
+    container_name: db
+    ports: 
+     - "3306:3306"
+    environment:
+     MYSQL_ROOT_PASSWORD: "M05stlyHarml3ss"
+     MYSQL_USER: "dbuser"
+     MYSQL_PASSWORD: "M05stlyHarml3ss"
+     MYSQL_DATABASE: "development"
+    volumes:
+     - my-datavolume:/var/lib/mysql
+
+  app:
+    build:
+     context: .
+     dockerfile: ./application/Dockerfile
+    container_name: app
+    ports:
+     - "80:80"
+    volumes:
+     - /Users/david.lodwig/Sites/OtherProjects/lodwig.me:/var/www/html
+volumes:
+  my-datavolume:
