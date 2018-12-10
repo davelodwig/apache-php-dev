@@ -21,7 +21,11 @@ services:
     container_name: app
     ports:
      - "80:80"
+    environment:
+     APP_MYSQL_USER: "dbuser"
+     APP_MYSQL_PASSWORD: "M05stlyHarml3ss"
+     APP_MYSQL_DATABASE: "development"
     volumes:
-     - /Users/david.lodwig/Sites/OtherProjects/lodwig.me:/var/www/html
+     - /Users/david.lodwig/Sites/OtherProjects/portland:/var/www/html
 volumes:
   my-datavolume:
